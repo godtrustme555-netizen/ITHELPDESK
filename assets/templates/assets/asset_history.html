@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset History: {{ asset.asset_id }} - IT HELPDESK</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bs-body-font-family: 'Plus Jakarta Sans', sans-serif;
+            --primary-gradient: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            --blue-light: #eff6ff;
+            --blue-border: #bfdbfe;
+            --blue-dark: #1e3a8a;
+            --blue-accent: #3b82f6;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            color: #1e293b;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: #0f172a !important;
+            border-bottom: 2px solid var(--blue-accent);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: #ffffff !important;
+            letter-spacing: -0.5px;
+        }
+
+        .main-container {
+            padding-top: 2.5rem;
+            padding-bottom: 4rem;
+        }
+
+        .history-card {
+            border: 1px solid var(--blue-border);
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .card-header-custom {
+            background-color: #f8fafc;
+            border-bottom: 1px solid var(--blue-border);
+            padding: 16px 20px;
+            font-weight: 600;
+            color: var(--blue-dark);
+        }
+
+        .nav-tabs {
+            border-bottom: 1px solid var(--blue-border);
+            background-color: #f8fafc;
+            padding: 0 16px;
+        }
+
+        .nav-link {
+            border: none;
+            color: #64748b;
+            font-weight: 500;
+            padding: 14px 20px;
+            margin-bottom: -1px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--blue-accent);
+            border-bottom: 3px solid #e2e8f0;
+        }
+
+        .nav-link.active {
+            color: var(--blue-dark) !important;
+            background: transparent !important;
+            border: none !important;
+            border-bottom: 3px solid var(--blue-accent) !important;
+            font-weight: 600;
+        }
+
+        .table th {
+            color: var(--blue-dark);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            background-color: #f8fafc;
+            border-bottom: 2px solid var(--blue-border);
+            padding: 12px 16px;
+        }
+
+        .table td {
+            padding: 16px;
+            vertical-align: middle;
+            border-bottom: 1px solid #f1f5f9;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+                <i class="bi bi-shield-check fs-3"></i>
+                <span>IT HELPDESK</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container main-container">
+        
+        <!-- Back Link -->
+        <div class="mb-4">
+            <a href="{% url 'asset_detail' asset.id %}" class="text-decoration-none text-muted fw-medium d-flex align-items-center gap-2">
+                <i class="bi bi-arrow-left"></i>
+                <span>Back to Asset details</span>
+            </a>
+        </div>
+
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h1 class="fw-bold text-dark mb-1">Asset Lifecycle History</h1>
+                <p class="text-muted mb-0">Detailed audit logs and tracking for asset tag <strong class="text-dark">{{ asset.asset_id }}</strong> ({{ asset.brand }} {{ asset.model }}).</p>
+            </div>
+            <span class="badge {% if asset.status == 'Available' %}bg-success{% elif asset.status == 'Assigned' %}bg-primary{% else %}bg-warning{% endif %} fs-6 py-2 px-3">
+                Current Status: {{ asset.status }}
+            </span>
+        </div>
+
+        <!-- History Card -->
+        <div class="card history-card">
+            <!-- Tabs Navigation -->
+            <ul class="nav nav-tabs" id="historyTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="assignment-tab" data-bs-toggle="tab" data-bs-target="#assignment" type="button" role="tab" aria-controls="assignment" aria-selected="true">
+                        <i class="bi bi-person-check-fill me-2"></i>Assignment History
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="return-tab" data-bs-toggle="tab" data-bs-target="#return" type="button" role="tab" aria-controls="return" aria-selected="false">
+                        <i class="bi bi-box-arrow-in-left me-2"></i>Return History
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="repair-tab" data-bs-toggle="tab" data-bs-target="#repair" type="button" role="tab" aria-controls="repair" aria-selected="false">
+                        <i class="bi bi-wrench-adjustable-circle me-2"></i>Repair & Lifecycle
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tabs Content -->
+            <div class="tab-content" id="historyTabsContent">
+                
+                <!-- Tab 1: Assignment History -->
+                <div class="tab-pane fade show active" id="assignment" role="tabpanel" aria-labelledby="assignment-tab">
+                    <div class="table-responsive">
+                        <table class="table mb-0 align-middle">
+                            <thead>
+                                <tr>
+                                    <th class="ps-4">Employee / Assignee</th>
+                                    <th>Assigned Date</th>
+                                    <th>Status / Return Date</th>
+                                    <th>Assigned By</th>
+                                    <th class="pe-4">Remarks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for assign in assignments %}
+                                <tr>
+                                    <td class="ps-4 fw-semibold text-dark">
+                                        <i class="bi bi-person me-2 text-secondary"></i>{{ assign.employee.username|default:"Unknown" }}
+                                    </td>
+                                    <td class="small text-muted">
+                                        {{ assign.assigned_date|date:"M d, Y, h:i A" }}
+                                    </td>
+                                    <td class="small">
+                                        {% if assign.return_date %}
+                                            <span class="text-success font-monospace"><i class="bi bi-check2-circle me-1"></i>Returned: {{ assign.return_date|date:"M d, Y, h:i A" }}</span>
+                                        {% else %}
+                                            <span class="badge bg-warning text-dark px-2.5 py-1 fw-semibold"><i class="bi bi-clock-history me-1"></i>Active Assignment</span>
+                                        {% endif %}
+                                    </td>
+                                    <td class="small text-muted">
+                                        {{ assign.assigned_by.username|default:"System" }}
+                                    </td>
+                                    <td class="small text-muted pe-4" style="max-width: 250px; white-space: pre-wrap;">
+                                        {{ assign.remarks|default:"-" }}
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="5" class="text-center py-5 text-muted">
+                                        <i class="bi bi-person-x d-block fs-2 mb-2"></i>
+                                        <span>No assignment records found.</span>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Return History -->
+                <div class="tab-pane fade" id="return" role="tabpanel" aria-labelledby="return-tab">
+                    <div class="table-responsive">
+                        <table class="table mb-0 align-middle">
+                            <thead>
+                                <tr>
+                                    <th class="ps-4">Returned By (Assignee)</th>
+                                    <th>Assigned Date</th>
+                                    <th>Return Date</th>
+                                    <th>Closed By</th>
+                                    <th class="pe-4">Return Condition / Remarks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for ret in returns %}
+                                <tr>
+                                    <td class="ps-4 fw-semibold text-dark">
+                                        <i class="bi bi-person me-2 text-secondary"></i>{{ ret.employee.username }}
+                                    </td>
+                                    <td class="small text-muted">
+                                        {{ ret.assigned_date|date:"M d, Y" }}
+                                    </td>
+                                    <td class="small text-success fw-semibold">
+                                        {{ ret.return_date|date:"M d, Y, h:i A" }}
+                                    </td>
+                                    <td class="small text-muted">
+                                        {{ ret.assigned_by.username|default:"System" }}
+                                    </td>
+                                    <td class="small text-muted pe-4" style="max-width: 280px; white-space: pre-wrap;">
+                                        {{ ret.remarks|default:"-" }}
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="5" class="text-center py-5 text-muted">
+                                        <i class="bi bi-box-seam d-block fs-2 mb-2"></i>
+                                        <span>No return/check-in logs recorded.</span>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Repair & Lifecycle -->
+                <div class="tab-pane fade" id="repair" role="tabpanel" aria-labelledby="repair-tab">
+                    <div class="table-responsive">
+                        <table class="table mb-0 align-middle">
+                            <thead>
+                                <tr>
+                                    <th class="ps-4">Date / Time</th>
+                                    <th>Action Logged</th>
+                                    <th>Logged By</th>
+                                    <th class="pe-4">Lifecycle Remarks / Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for act in repair_and_lifecycle %}
+                                <tr>
+                                    <td class="ps-4 small text-muted font-monospace">
+                                        {{ act.timestamp|date:"Y-m-d H:i:s" }}
+                                    </td>
+                                    <td>
+                                        <span class="badge 
+                                            {% if 'Repair' in act.action %}bg-warning-subtle text-warning-emphasis
+                                            {% elif 'Scrap' in act.action %}bg-danger-subtle text-danger-emphasis
+                                            {% elif 'Lost' in act.action %}bg-secondary text-white
+                                            {% else %}bg-info-subtle text-info-emphasis{% endif %} px-2.5 py-1">
+                                            {{ act.action }}
+                                        </span>
+                                    </td>
+                                    <td class="small fw-semibold text-dark">
+                                        {{ act.actor.username|default:"System" }}
+                                    </td>
+                                    <td class="small text-muted pe-4" style="max-width: 300px; white-space: pre-wrap;">
+                                        {{ act.notes|default:"-" }}
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="4" class="text-center py-5 text-muted">
+                                        <i class="bi bi-wrench-adjustable-circle d-block fs-2 mb-2"></i>
+                                        <span>No maintenance, repair, or scrap logs exist for this asset.</span>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+IT DEPARTMENT - SELF CALL NOTIFICATION
+
+Hello,
+
+{{ email_message }}
+{% if actor %}Performed by: {{ actor.username }}{% endif %}
+
+========================================
+SELF CALL DETAILS
+========================================
+Self Call ID:      {{ self_call.self_call_id }}
+Title:             {{ self_call.title }}
+Category:          {{ self_call.category }}
+Department:        {{ self_call.department }}
+Priority:          {{ self_call.priority }}
+Status:            {{ self_call.status }}
+Assigned Engineer: {{ self_call.assigned_engineer.username|default:"Unassigned" }}
+
+View Self Call Details:
+{{ self_call_url }}
+
+----------------------------------------
+This is an automated internal notification from your IT Helpdesk system.
+Please do not reply directly to this email.

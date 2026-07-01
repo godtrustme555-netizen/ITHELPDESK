@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT HELPDESK</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bs-body-font-family: 'Plus Jakarta Sans', sans-serif;
+            --primary-gradient: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            --blue-light: #eff6ff;
+            --blue-border: #bfdbfe;
+            --blue-dark: #1e3a8a;
+            --blue-accent: #3b82f6;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            color: #1e293b;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: #0f172a !important;
+            border-bottom: 2px solid var(--blue-accent);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: #ffffff !important;
+            letter-spacing: -0.5px;
+        }
+
+        .navbar-brand i {
+            color: #3b82f6;
+        }
+
+        .main-container {
+            padding-top: 2.5rem;
+            padding-bottom: 4rem;
+        }
+
+        .detail-card, .sidebar-card, .comment-card {
+            border: 1px solid var(--blue-border);
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-header-custom {
+            background-color: #f8fafc;
+            border-bottom: 1px solid var(--blue-border);
+            padding: 16px 20px;
+            font-weight: 600;
+            color: var(--blue-dark);
+            border-top-left-radius: 11px;
+            border-top-right-radius: 11px;
+        }
+
+        /* Priority and Status indicators */
+        .priority-indicator {
+            width: 8px;
+            height: 8px;
+            display: inline-block;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        .priority-critical { background-color: #ef4444; }
+        .priority-high { background-color: #f97316; }
+        .priority-medium { background-color: #eab308; }
+        .priority-low { background-color: #64748b; }
+
+        .badge-priority-critical { background-color: #fee2e2; color: #991b1b; }
+        .badge-priority-high { background-color: #ffedd5; color: #9a3412; }
+        .badge-priority-medium { background-color: #fef9c3; color: #854d0e; }
+        .badge-priority-low { background-color: #f1f5f9; color: #334155; }
+
+        .badge-status-open { background-color: #e0f2fe; color: #0369a1; }
+        .badge-status-inprogress { background-color: #e0e7ff; color: #3730a3; }
+        .badge-status-resolved { background-color: #dcfce7; color: #166534; }
+        .badge-status-closed { background-color: #dcfce7; color: #166534; }
+
+        .badge-status-open-lg { font-size: 0.95rem; padding: 6px 12px; }
+
+        /* Comment timeline */
+        .timeline {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-left: 0.5rem;
+            border-left: 2px solid #e2e8f0;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: calc(-1.5rem - 7px);
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--blue-accent);
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+            top: 6px;
+        }
+
+        .timeline-marker-staff {
+            background-color: #8b5cf6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+        }
+
+        .comment-header {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .comment-body {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-top: 4px;
+            color: #334155;
+            font-size: 0.95rem;
+            white-space: pre-wrap;
+        }
+
+        .comment-body-staff {
+            background-color: #faf5ff;
+            border-color: #f3e8ff;
+        }
+
+        .btn-gradient {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            font-weight: 600;
+            border-radius: 8px;
+            padding: 10px 18px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-gradient:hover {
+            background: linear-gradient(135deg, #172554 0%, #1d4ed8 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #64748b;
+            margin-bottom: 2px;
+            letter-spacing: 0.5px;
+        }
+
+        .meta-value {
+            font-weight: 500;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .meta-value:last-child {
+            margin-bottom: 0;
+        }
+
+        .ticket-facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+            gap: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .ticket-fact {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .ticket-fact .meta-value {
+            margin: 6px 0 0;
+        }
+
+        .attachment-item, .activity-item {
+            border-bottom: 1px solid #e2e8f0;
+            padding: 12px 0;
+        }
+
+        .attachment-item:last-child, .activity-item:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .activity-icon {
+            width: 34px;
+            height: 34px;
+            flex: 0 0 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--blue-light);
+            color: var(--blue-accent);
+        }
+
+        @media (max-width: 767.98px) {
+            .ticket-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+
+        @media (max-width: 399.98px) {
+            .ticket-facts { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+                <i class="bi bi-shield-check fs-3"></i>
+                <span>IT HELPDESK</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <div class="d-flex align-items-center mt-3 mt-lg-0 gap-3">
+                    <span class="text-white-50">Logged in as <strong class="text-white">{{ request.user.username }}</strong> | {{ user_role.label }}</span>
+                    <form action="{% url 'logout' %}" method="post" class="m-0">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-light btn-sm border-0"><i class="bi bi-box-arrow-right me-1"></i> Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container main-container">
+        
+        <!-- Back Link -->
+        <div class="mb-4">
+            <a href="/" class="text-decoration-none text-muted fw-medium d-flex align-items-center gap-2">
+                <i class="bi bi-arrow-left"></i>
+                <span>Back to Dashboard</span>
+            </a>
+        </div>
+
+        <!-- Messages Alert -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show mb-4" role="alert">
+                    <i class="bi {% if message.tags == 'error' %}bi-exclamation-triangle-fill{% else %}bi-info-circle-fill{% endif %} me-2"></i>
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <!-- Content Grid -->
+        <div class="row g-4">
+            
+            <!-- Left Column: Details & Comments -->
+            <div class="col-12 col-lg-8">
+                
+                <!-- Ticket Detail Card -->
+                <div class="card detail-card p-4">
+                    <div class="d-flex justify-content-between align-items-start gap-3 flex-wrap mb-3">
+                        <h2 class="fw-bold mb-0 text-dark d-flex align-items-center gap-2 flex-wrap">
+                            {% if ticket.ticket_number %}
+                                <span class="badge bg-secondary-subtle text-secondary-emphasis font-monospace" style="font-size: 1.1rem; border: 1px solid var(--blue-border);">{{ ticket.ticket_number }}</span>
+                            {% endif %}
+                            <span>{{ ticket.subject }}</span>
+                        </h2>
+                    </div>
+
+                    <div class="text-muted small mb-4 d-flex align-items-center gap-3 flex-wrap">
+                        <span><i class="bi bi-person me-1"></i> Reporter: <strong>{{ ticket.created_by.username|default:"System" }}</strong></span>
+                        <span><i class="bi bi-calendar3 me-1"></i> Created: <strong>{{ ticket.created_at|date:"M d, Y, h:i A" }}</strong></span>
+                    </div>
+
+                    <div class="ticket-facts" aria-label="Ticket details">
+                        <div class="ticket-fact">
+                            <div class="meta-label">Category</div>
+                            <div class="meta-value"><i class="bi bi-tag me-1 text-primary"></i>{{ ticket.category }}</div>
+                        </div>
+                        <div class="ticket-fact">
+                            <div class="meta-label">Priority</div>
+                            <div class="meta-value">
+                                <span class="badge badge-priority-{{ ticket.priority|lower }}">
+                                    <span class="priority-indicator priority-{{ ticket.priority|lower }}"></span>{{ ticket.priority }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ticket-fact">
+                            <div class="meta-label">Status</div>
+                            <div class="meta-value">
+                                <span class="badge badge-status-{{ ticket.status|lower|cut:' ' }}">{{ ticket.status }}</span>
+                            </div>
+                        </div>
+                        <div class="ticket-fact">
+                            <div class="meta-label">Assigned To</div>
+                            <div class="meta-value">
+                                {% if ticket.assigned_to %}
+                                    <i class="bi bi-person-badge me-1 text-primary"></i>{{ ticket.assigned_to.username }}
+                                {% else %}
+                                    <span class="text-muted">Unassigned</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="ticket-fact">
+                            <div class="meta-label">SLA Deadline</div>
+                            <div class="meta-value">
+                                <i class="bi bi-calendar-event me-1 text-primary"></i>
+                                {% if ticket.sla_deadline %}
+                                    {{ ticket.sla_deadline|date:"M d, Y, h:i A" }}
+                                {% else %}
+                                    N/A
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="ticket-fact">
+                            <div class="meta-label">SLA Status</div>
+                            <div class="meta-value">
+                                {% if ticket.status == 'Resolved' or ticket.status == 'Closed' %}
+                                    {% if ticket.is_sla_breached %}
+                                        <span class="badge bg-danger-subtle text-danger"><i class="bi bi-clock-fill me-1"></i>Breached</span>
+                                    {% else %}
+                                        <span class="badge bg-success-subtle text-success"><i class="bi bi-clock-fill me-1"></i>Met</span>
+                                    {% endif %}
+                                {% else %}
+                                    {% if ticket.is_sla_breached %}
+                                        <span class="badge bg-danger text-white"><i class="bi bi-exclamation-triangle-fill me-1"></i>Breached</span>
+                                    {% else %}
+                                        {% if ticket.priority == 'Critical' or ticket.priority == 'High' %}
+                                            <span class="badge bg-warning-subtle text-warning-emphasis"><i class="bi bi-clock me-1"></i>{{ ticket.sla_remaining_time_display }}</span>
+                                        {% else %}
+                                            <span class="badge bg-light-subtle text-dark-emphasis border"><i class="bi bi-clock me-1"></i>{{ ticket.sla_remaining_time_display }}</span>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5 class="fw-semibold text-secondary mb-2">Description</h5>
+                    <div class="bg-light p-3 rounded-3 border mb-2 text-dark" style="white-space: pre-wrap; font-size: 1.05rem; line-height: 1.6;">
+                        {{ ticket.description }}
+                    </div>
+                </div>
+
+                <!-- Comments/Timeline Card -->
+                <div class="card comment-card">
+                    <div class="card-header-custom">
+                        <i class="bi bi-chat-left-text me-2"></i>Comment History
+                        <span class="badge bg-primary-subtle text-primary ms-2">{{ comments|length }}</span>
+                    </div>
+                    <div class="card-body p-4">
+                        {% if comments %}
+                            <div class="timeline">
+                                {% for comment in comments %}
+                                    <div class="timeline-item">
+                                        <!-- Different dot for staff updates -->
+                                        <div class="timeline-marker {% if comment.author.profile.role == 'IT_SUPPORT' or comment.author.profile.role == 'ADMIN' or comment.author.is_superuser %}timeline-marker-staff{% endif %}"></div>
+                                        <div class="comment-header">
+                                            <strong class="text-dark">
+                                                {{ comment.author.username }}
+                                                {% if comment.author.profile.role == 'IT_SUPPORT' or comment.author.profile.role == 'ADMIN' or comment.author.is_superuser %}
+                                                    <span class="badge bg-secondary ms-1 small">IT Team</span>
+                                                {% endif %}
+                                            </strong>
+                                            <span class="mx-1">&bull;</span>
+                                            <span>{{ comment.created_at|date:"M d, Y, h:i A" }}</span>
+                                        </div>
+                                        <div class="comment-body {% if comment.author.profile.role == 'IT_SUPPORT' or comment.author.profile.role == 'ADMIN' or comment.author.is_superuser %}comment-body-staff{% endif %}">
+                                            {{ comment.text }}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="text-center py-4 text-muted">
+                                <i class="bi bi-chat-dots fs-3 d-block mb-2"></i>
+                                <span>No responses yet. Add a comment below to update the reporter or staff.</span>
+                            </div>
+                        {% endif %}
+
+                        <hr class="my-4">
+
+                        <!-- Comment Submission Form -->
+                        <h5 class="fw-semibold mb-3">Add Comment</h5>
+                        <form method="post" id="commentForm">
+                            {% csrf_token %}
+                            <input type="hidden" name="action" value="add_comment">
+                            <div class="mb-3">
+                                {{ comment_form.text }}
+                                {% for error in comment_form.text.errors %}<div class="text-danger small mt-1">{{ error }}</div>{% endfor %}
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-gradient d-flex align-items-center gap-2">
+                                    <i class="bi bi-send-fill"></i>
+                                    <span>Post Comment</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Attachments Card -->
+                <div class="card comment-card">
+                    <div class="card-header-custom d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-paperclip me-2"></i>Attachments</span>
+                        <span class="badge bg-primary-subtle text-primary">{{ attachments|length }}</span>
+                    </div>
+                    <div class="card-body p-4">
+                        {% if attachments %}
+                            <div class="mb-4">
+                                {% for attachment in attachments %}
+                                    <div class="attachment-item d-flex align-items-center justify-content-between gap-3">
+                                        <div class="min-w-0">
+                                            <a href="{% url 'download_attachment' attachment.id %}" class="text-decoration-none fw-semibold text-dark">
+                                                <i class="bi bi-file-earmark-arrow-down text-primary me-2"></i>{{ attachment.filename }}
+                                            </a>
+                                            <div class="text-muted small mt-1">Uploaded by {{ attachment.uploaded_by.username }} · {{ attachment.uploaded_at|date:"M d, Y, h:i A" }}</div>
+                                        </div>
+                                        <a href="{% url 'download_attachment' attachment.id %}" class="btn btn-sm btn-outline-primary" aria-label="Download {{ attachment.filename }}">
+                                            <i class="bi bi-download"></i>
+                                        </a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        <form method="post" enctype="multipart/form-data" action="{% url 'upload_attachment' ticket.id %}">
+                            {% csrf_token %}
+                            <label for="{{ attachment_form.file.id_for_label }}" class="form-label fw-semibold text-secondary">Add an attachment</label>
+                            {{ attachment_form.file }}
+                            <div class="form-text">PNG, JPG, GIF, PDF, text, Office, or ZIP files up to 10 MB.</div>
+                            <button type="submit" class="btn btn-outline-primary mt-3 w-100">
+                                <i class="bi bi-cloud-arrow-up me-2"></i>Upload File
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Sidebar Actions -->
+            <div class="col-12 col-lg-4">
+                
+                <!-- Ticket Attributes/Settings Card -->
+                <div class="card sidebar-card">
+                    <div class="card-header-custom">
+                        <i class="bi bi-gear-fill me-2"></i>Ticket Metadata
+                    </div>
+                    <div class="card-body p-4">
+                        
+                        {% if update_form %}
+                            <!-- Staff / Technician Action Panel -->
+                            <form method="post" action="{% url 'update_ticket' ticket.id %}" id="updateForm">
+                                {% csrf_token %}
+                                
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold text-secondary">Status</label>
+                                    {{ update_form.status }}
+                                </div>
+
+                                {% if can_change_priority %}<div class="mb-3">
+                                    <label class="form-label fw-semibold text-secondary">Priority</label>
+                                    {{ update_form.priority }}
+                                </div>{% endif %}
+
+                                <div class="mb-4">
+                                    <label class="form-label fw-semibold text-secondary">Assign Agent</label>
+                                    {{ update_form.assigned_to }}
+                                </div>
+
+                                <button type="submit" class="btn btn-gradient w-100 py-2">
+                                    <i class="bi bi-save2 me-2"></i>Update Ticket
+                                </button>
+                            </form>
+                        {% else %}
+                            <!-- Employee Static Attributes Display -->
+                            <div class="meta-label">Current Status</div>
+                            <div class="meta-value">
+                                <span class="badge badge-status-{{ ticket.status|lower|cut:' ' }} badge-status-open-lg px-3 py-1.5 rounded-pill">
+                                    {{ ticket.status }}
+                                </span>
+                            </div>
+
+                            <div class="meta-label mt-3">Priority Rating</div>
+                            <div class="meta-value">
+                                <span class="badge badge-priority-{{ ticket.priority|lower }} px-2.5 py-1">
+                                    <span class="priority-indicator priority-{{ ticket.priority|lower }}"></span>
+                                    {{ ticket.priority }}
+                                </span>
+                            </div>
+
+                            <div class="meta-label mt-3">Assigned IT Technician</div>
+                            <div class="meta-value">
+                                {% if ticket.assigned_to %}
+                                    <span class="text-dark fw-semibold">
+                                        <i class="bi bi-person-badge text-primary me-1"></i>
+                                        {{ ticket.assigned_to.username }}
+                                    </span>
+                                {% else %}
+                                    <span class="text-muted italic">Awaiting technician assignment</span>
+                                {% endif %}
+                            </div>
+
+                            <div class="meta-label mt-3">Reporter</div>
+                            <div class="meta-value">
+                                <span class="text-dark">{{ ticket.created_by.username|default:"System" }}</span>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+
+                <!-- Activity Timeline Card -->
+                <div class="card sidebar-card">
+                    <div class="card-header-custom">
+                        <i class="bi bi-clock-history me-2"></i>Activity History
+                    </div>
+                    <div class="card-body p-4">
+                        {% for activity in activities %}
+                            <div class="activity-item d-flex gap-3">
+                                <span class="activity-icon">
+                                    {% if activity.event_type == 'COMMENT' %}<i class="bi bi-chat-left-text"></i>
+                                    {% elif activity.event_type == 'ATTACHMENT' %}<i class="bi bi-paperclip"></i>
+                                    {% elif activity.event_type == 'STATUS' %}<i class="bi bi-arrow-repeat"></i>
+                                    {% elif activity.event_type == 'ASSIGNMENT' %}<i class="bi bi-person-check"></i>
+                                    {% elif activity.event_type == 'CREATED' %}<i class="bi bi-plus-lg"></i>
+                                    {% else %}<i class="bi bi-pencil"></i>{% endif %}
+                                </span>
+                                <div>
+                                    <div class="fw-semibold text-dark small">{{ activity.message }}</div>
+                                    <div class="text-muted small mt-1">
+                                        {{ activity.actor.username|default:"System" }} · {{ activity.created_at|date:"M d, Y, h:i A" }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <div class="text-muted small">No activity recorded yet.</div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

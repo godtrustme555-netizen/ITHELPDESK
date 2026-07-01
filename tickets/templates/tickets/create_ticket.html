@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT HELPDESK</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bs-body-font-family: 'Plus Jakarta Sans', sans-serif;
+            --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(226, 232, 240, 0.8);
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #0f172a;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #818cf8, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .form-card {
+            border: 1px solid var(--glass-border);
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-gradient {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            font-weight: 600;
+            border-radius: 12px;
+            padding: 10px 24px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-gradient:hover {
+            background: linear-gradient(135deg, #4338ca 0%, #2563eb 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+        }
+
+        .btn-cancel {
+            border-radius: 12px;
+            padding: 10px 24px;
+            font-weight: 600;
+        }
+
+        /* Customize focus states for inputs */
+        .form-control:focus, .form-select:focus {
+            border-color: #a5b4fc;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+                <i class="bi bi-shield-check fs-3"></i>
+                <span>IT HELPDESK</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Form Container -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                
+                <!-- Back Link -->
+                <div class="mb-4">
+                    <a href="/" class="text-decoration-none text-muted fw-medium d-flex align-items-center gap-2">
+                        <i class="bi bi-arrow-left"></i>
+                        <span>Back to Dashboard</span>
+                    </a>
+                </div>
+
+                <!-- Form Card -->
+                <div class="card form-card p-4 p-md-5">
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <div class="bg-primary-subtle text-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <i class="bi bi-ticket-perforated fs-4"></i>
+                        </div>
+                        <div>
+                            <h2 class="fw-bold mb-1">Create Support Ticket</h2>
+                            <p class="text-muted mb-0">Please fill in the form below to submit a request to the IT team.</p>
+                        </div>
+                    </div>
+
+                    <form method="post" id="ticketForm" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        
+                        {% for field in form %}
+                        <div class="mb-4">
+                            <label for="{{ field.id_for_label }}" class="form-label fw-semibold text-secondary d-flex justify-content-between align-items-center">
+                                <span>{{ field.label }}</span>
+                                {% if field.name == 'description' %}
+                                <span class="text-muted font-monospace small" style="font-weight: normal;">
+                                    <span id="char-count">0</span> / 1000 chars
+                                </span>
+                                {% endif %}
+                            </label>
+                            
+                            {{ field }}
+                            
+                            {% if field.help_text %}
+                            <div class="form-text text-muted">{{ field.help_text }}</div>
+                            {% endif %}
+                            
+                            {% for error in field.errors %}
+                            <div class="text-danger small mt-1"><i class="bi bi-exclamation-circle me-1"></i>{{ error }}</div>
+                            {% endfor %}
+                            
+                            <div class="invalid-feedback">
+                                Please provide a valid {{ field.label|lower }}.
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        <!-- Actions -->
+                        <div class="d-flex flex-column-reverse flex-sm-row justify-content-end gap-3 mt-5">
+                            <a href="/" class="btn btn-light btn-cancel text-secondary">Cancel</a>
+                            <button type="submit" class="btn btn-gradient d-flex align-items-center justify-content-center gap-2" id="submitBtn">
+                                <i class="bi bi-send-fill" id="submitIcon"></i>
+                                <span id="submitText">Submit Ticket</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Dynamic Form Interactions -->
+    <script>
+        // Character counter for description
+        const descriptionField = document.querySelector('textarea[name="description"]');
+        const charCountEl = document.getElementById('char-count');
+        
+        if (descriptionField && charCountEl) {
+            descriptionField.setAttribute('maxlength', '1000');
+            
+            const updateCount = () => {
+                charCountEl.textContent = descriptionField.value.length;
+            };
+            
+            descriptionField.addEventListener('input', updateCount);
+            // Run on load in case of prepopulated text
+            updateCount();
+        }
+
+        // Bootstrap validation and submission loading state
+        (() => {
+            'use strict';
+            const form = document.getElementById('ticketForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const submitIcon = document.getElementById('submitIcon');
+
+            form.addEventListener('submit', (event) => {
+                // Ensure form fields are valid
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    form.classList.add('was-validated');
+                } else {
+                    // Set loading state
+                    submitBtn.disabled = true;
+                    submitText.textContent = "Submitting Request...";
+                    
+                    // Replace icon with loading spinner
+                    submitIcon.className = "spinner-border spinner-border-sm";
+                    submitIcon.setAttribute('role', 'status');
+                    submitIcon.style.borderWidth = '2px';
+                }
+            }, false);
+
+            // Add basic HTML5 validation fields dynamically
+            const subjectField = document.querySelector('input[name="subject"]');
+            if (subjectField) {
+                subjectField.required = true;
+                subjectField.setAttribute('minlength', '5');
+            }
+            if (descriptionField) {
+                descriptionField.required = true;
+                descriptionField.setAttribute('minlength', '15');
+            }
+        })();
+    </script>
+</body>
+</html>

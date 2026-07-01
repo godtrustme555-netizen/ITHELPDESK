@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Import Assets - IT HELPDESK</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bs-body-font-family: 'Plus Jakarta Sans', sans-serif;
+            --primary-gradient: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            --blue-light: #eff6ff;
+            --blue-border: #bfdbfe;
+            --blue-dark: #1e3a8a;
+            --blue-accent: #3b82f6;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            color: #1e293b;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: #0f172a !important;
+            border-bottom: 2px solid var(--blue-accent);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: #ffffff !important;
+            letter-spacing: -0.5px;
+        }
+
+        .main-container {
+            padding-top: 2.5rem;
+            padding-bottom: 4rem;
+        }
+
+        .import-card {
+            border: 1px solid var(--blue-border);
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-gradient {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            font-weight: 600;
+            border-radius: 8px;
+            padding: 10px 18px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-gradient:hover {
+            background: linear-gradient(135deg, #172554 0%, #1d4ed8 100%);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+                <i class="bi bi-shield-check fs-3"></i>
+                <span>IT HELPDESK</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container main-container">
+        
+        <!-- Back Link -->
+        <div class="mb-4">
+            <a href="{% url 'assets_dashboard' %}" class="text-decoration-none text-muted fw-medium d-flex align-items-center gap-2">
+                <i class="bi bi-arrow-left"></i>
+                <span>Back to Assets Dashboard</span>
+            </a>
+        </div>
+
+        <div class="row g-4">
+            <!-- Upload Panel -->
+            <div class="col-12 col-lg-7">
+                <div class="card import-card p-4 p-md-5 h-100">
+                    <h2 class="fw-bold text-dark mb-2"><i class="bi bi-file-earmark-spreadsheet text-success me-2"></i>Bulk Import Assets</h2>
+                    <p class="text-muted small mb-4">Upload a CSV sheet to populate the asset register in bulk.</p>
+
+                    {% if errors %}
+                        <div class="alert alert-danger border-danger-subtle mb-4">
+                            <h6 class="fw-bold mb-2"><i class="bi bi-exclamation-octagon-fill me-2"></i>CSV Validation Errors</h6>
+                            <p class="small text-danger-emphasis mb-3">No data was imported. Please correct the errors listed below and try again:</p>
+                            <div style="max-height: 250px; overflow-y: auto;">
+                                <ul class="small mb-0 ps-3">
+                                    {% for err in errors %}
+                                        <li class="mb-1 text-danger-emphasis">{{ err }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show mb-4" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form method="post" enctype="multipart/form-data" novalidate>
+                        {% csrf_token %}
+                        
+                        <div class="mb-4">
+                            <label for="{{ form.csv_file.id_for_label }}" class="form-label fw-semibold text-secondary">Select CSV File</label>
+                            {{ form.csv_file }}
+                            {% for error in form.csv_file.errors %}
+                                <div class="text-danger small mt-1">{{ error }}</div>
+                            {% endfor %}
+                            <div class="form-text text-muted small mt-2">Only <strong>.csv</strong> files are supported. Encoded in UTF-8.</div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <div class="d-flex justify-content-end gap-2">
+                            <a href="{% url 'assets_dashboard' %}" class="btn btn-outline-secondary px-4">Cancel</a>
+                            <button type="submit" class="btn btn-gradient px-4">
+                                <i class="bi bi-cloud-arrow-up-fill me-2"></i>Upload and Import
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Guidelines / Schema Panel -->
+            <div class="col-12 col-lg-5">
+                <div class="card border border-light-subtle bg-white p-4 rounded-3 h-100">
+                    <h5 class="fw-bold text-dark mb-3"><i class="bi bi-info-circle text-primary me-2"></i>CSV File Requirements</h5>
+                    
+                    <p class="small text-muted mb-4">For the import to succeed, your CSV file must match the following format guidelines:</p>
+                    
+                    <h6 class="fw-semibold text-secondary small text-uppercase mb-2">Required Columns</h6>
+                    <ul class="small ps-3 text-secondary mb-4">
+                        <li><strong>Asset Type</strong>: Laptop, Desktop, Printer, Monitor, Scanner, Router, Switch, Server, UPS, Other</li>
+                        <li><strong>Brand</strong>: Brand manufacturer (e.g. Dell, HP, Apple)</li>
+                        <li><strong>Model</strong>: Model name (e.g. Latitude 5420, MacBook Pro)</li>
+                        <li><strong>Serial Number</strong>: Must be unique across all inventory records</li>
+                        <li><strong>Purchase Date</strong>: Formats supported: <code>YYYY-MM-DD</code> or <code>MM/DD/YYYY</code></li>
+                        <li><strong>Warranty Expiry</strong>: Formats supported: <code>YYYY-MM-DD</code> or <code>MM/DD/YYYY</code></li>
+                    </ul>
+
+                    <h6 class="fw-semibold text-secondary small text-uppercase mb-2">Optional Columns</h6>
+                    <ul class="small ps-3 text-secondary mb-4">
+                        <li><strong>Status</strong>: Available, Repair, Scrap, Lost (Defaults to <code>Available</code> if blank)</li>
+                        <li><strong>Location</strong>: Physical location or room (e.g. HQ - Room 402, Remote)</li>
+                        <li><strong>Remarks</strong>: General details or technical observations</li>
+                    </ul>
+
+                    <h6 class="fw-semibold text-secondary small text-uppercase mb-2">Sample Formatting Example</h6>
+                    <div class="table-responsive border rounded bg-light p-2 font-monospace" style="font-size: 0.7rem;">
+                        Type,Brand,Model,Serial,Purchase Date,Warranty Expiry,Status,Location<br>
+                        Laptop,Dell,Latitude,SN-DELL-102,2025-01-15,2028-01-15,Available,HQ - Room 402<br>
+                        Monitor,HP,E24i,SN-HP-3049,2024-06-20,2027-06-20,Available,Remote
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

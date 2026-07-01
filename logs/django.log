@@ -1,0 +1,323 @@
+INFO 2026-06-22 00:27:14,618 signals 17448 15212 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:27:14,619 signals 17448 15212 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:27:14,619 signals 17448 15212 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:27:18,089 signals 17448 15212 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:27:21,646 signals 17448 15212 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:27:23,410 signals 17448 15212 No email notification recipients found for Ticket #2 activity.
+INFO 2026-06-22 00:27:31,879 signals 17448 15212 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:27:38,672 signals 17448 15212 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:27:38,673 signals 17448 15212 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:27:49,807 autoreload 16060 16248 Watching for file changes with StatReloader
+INFO 2026-06-22 00:28:02,003 log 16060 13440 "GET /accounts/login/ HTTP/1.1" 200 6909
+INFO 2026-06-22 00:28:04,081 log 16060 18352 "GET /accounts/login/ HTTP/1.1" 200 6909
+INFO 2026-06-22 00:28:04,096 log 16060 6184 "GET /accounts/login/ HTTP/1.1" 200 6909
+INFO 2026-06-22 00:28:40,105 autoreload 16056 4336 Watching for file changes with StatReloader
+ERROR 2026-06-22 00:28:46,516 log 16056 15944 "GET / HTTP/1.1" 500 181819
+INFO 2026-06-22 00:28:57,313 autoreload 8492 17788 Watching for file changes with StatReloader
+ERROR 2026-06-22 00:29:03,283 log 8492 11212 "GET / HTTP/1.1" 500 181819
+ERROR 2026-06-22 00:29:04,937 log 8492 11212 "GET / HTTP/1.1" 500 181819
+ERROR 2026-06-22 00:29:05,612 log 8492 11212 "GET / HTTP/1.1" 500 181819
+INFO 2026-06-22 00:29:11,965 autoreload 3660 6124 Watching for file changes with StatReloader
+ERROR 2026-06-22 00:29:15,804 log 3660 11612 "GET / HTTP/1.1" 500 181682
+ERROR 2026-06-22 00:29:18,525 log 3660 12540 "GET / HTTP/1.1" 500 180616
+INFO 2026-06-22 00:31:16,925 autoreload 12708 17940 Watching for file changes with StatReloader
+INFO 2026-06-22 00:31:40,724 autoreload 7840 11916 Watching for file changes with StatReloader
+INFO 2026-06-22 00:31:53,958 log 7840 4544 "GET / HTTP/1.1" 302 0
+INFO 2026-06-22 00:31:53,965 log 7840 4544 "GET /accounts/login/?next=/ HTTP/1.1" 200 6909
+WARNING 2026-06-22 00:31:54,209 log 7840 4544 "GET /favicon.ico HTTP/1.1" 404 4549
+ERROR 2026-06-22 00:31:57,706 log 7840 15036 "GET / HTTP/1.1" 500 181819
+ERROR 2026-06-22 00:31:58,402 log 7840 15036 "GET / HTTP/1.1" 500 181819
+ERROR 2026-06-22 00:32:17,153 log 7840 15036 "GET / HTTP/1.1" 500 181682
+INFO 2026-06-22 00:32:35,874 log 7840 4544 "POST /accounts/login/?next=/ HTTP/1.1" 302 0
+ERROR 2026-06-22 00:32:35,908 log 7840 4544 "GET / HTTP/1.1" 500 182238
+INFO 2026-06-22 00:36:35,623 autoreload 12136 3824 Watching for file changes with StatReloader
+INFO 2026-06-22 00:39:12,638 autoreload 18132 17516 Watching for file changes with StatReloader
+INFO 2026-06-22 00:39:23,832 autoreload 5824 12940 Watching for file changes with StatReloader
+INFO 2026-06-22 00:40:08,339 autoreload 7744 4600 Watching for file changes with StatReloader
+INFO 2026-06-22 00:40:25,292 autoreload 13740 4624 Watching for file changes with StatReloader
+ERROR 2026-06-22 00:40:45,597 log 13740 18396 "GET / HTTP/1.1" 500 181819
+WARNING 2026-06-22 00:40:48,818 log 13740 16928 Forbidden (CSRF token from POST incorrect.): /accounts/login/
+WARNING 2026-06-22 00:40:48,819 log 13740 16928 "POST /accounts/login/?next=/ HTTP/1.1" 403 2503
+INFO 2026-06-22 00:42:09,087 log 13740 6196 "GET / HTTP/1.1" 302 0
+INFO 2026-06-22 00:42:09,092 log 13740 6196 "GET /accounts/login/?next=/ HTTP/1.1" 200 6909
+INFO 2026-06-22 00:42:16,411 log 13740 6196 "POST /accounts/login/?next=/ HTTP/1.1" 302 0
+ERROR 2026-06-22 00:42:16,441 log 13740 6196 "GET / HTTP/1.1" 500 182226
+ERROR 2026-06-22 00:42:30,932 log 13740 18396 "GET / HTTP/1.1" 500 181819
+WARNING 2026-06-22 00:42:34,340 log 13740 16928 Forbidden (CSRF token from POST incorrect.): /accounts/login/
+WARNING 2026-06-22 00:42:34,341 log 13740 16928 "POST /accounts/login/?next=/ HTTP/1.1" 403 2503
+ERROR 2026-06-22 00:42:38,227 log 13740 16928 "GET / HTTP/1.1" 500 181681
+INFO 2026-06-22 00:44:10,528 autoreload 13740 4624 C:\Users\visha\ITHelpdesk\tickets\models.py changed, reloading.
+INFO 2026-06-22 00:44:11,019 autoreload 5980 7928 Watching for file changes with StatReloader
+INFO 2026-06-22 00:44:30,584 signals 2464 8904 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:44:30,585 signals 2464 8904 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:44:30,585 signals 2464 8904 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:44:34,028 signals 2464 8904 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:44:37,493 signals 2464 8904 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:44:39,255 signals 2464 8904 No email notification recipients found for Ticket #2 activity.
+INFO 2026-06-22 00:44:47,820 signals 2464 8904 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:44:54,648 signals 2464 8904 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:44:54,649 signals 2464 8904 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:45:16,547 log 5980 9620 "GET / HTTP/1.1" 200 45730
+INFO 2026-06-22 00:45:27,703 log 5980 9620 "GET /ticket/11/ HTTP/1.1" 200 19945
+INFO 2026-06-22 00:45:31,009 log 5980 9620 "GET / HTTP/1.1" 200 45730
+INFO 2026-06-22 00:45:34,633 log 5980 9620 "GET /audit-log/ HTTP/1.1" 200 49488
+INFO 2026-06-22 00:45:45,851 log 5980 9620 "GET /reports/ HTTP/1.1" 200 11590
+INFO 2026-06-22 00:45:55,803 log 5980 9620 "GET /create/ HTTP/1.1" 200 12137
+INFO 2026-06-22 00:46:14,994 signals 5980 9620 Notification email sent to ['godtrustme555@gmail.com'] for Ticket #12 activity: 'Ticket created'.
+INFO 2026-06-22 00:46:14,996 log 5980 9620 "POST /create/ HTTP/1.1" 302 0
+INFO 2026-06-22 00:46:15,010 log 5980 9620 "GET / HTTP/1.1" 200 49114
+INFO 2026-06-22 00:47:34,890 log 5980 9620 "GET /reports/ HTTP/1.1" 200 11611
+INFO 2026-06-22 00:47:37,459 log 5980 9620 "GET /audit-log/ HTTP/1.1" 200 51233
+INFO 2026-06-22 00:47:41,629 log 5980 9620 "GET /audit-log/ HTTP/1.1" 200 51233
+INFO 2026-06-22 00:52:10,071 autoreload 5980 7928 C:\Users\visha\ITHelpdesk\helpdesk\settings.py changed, reloading.
+INFO 2026-06-22 00:52:10,723 autoreload 21224 20596 Watching for file changes with StatReloader
+INFO 2026-06-22 00:52:15,964 autoreload 21224 20596 C:\Users\visha\ITHelpdesk\helpdesk\urls.py changed, reloading.
+INFO 2026-06-22 00:52:16,592 autoreload 16056 13564 Watching for file changes with StatReloader
+INFO 2026-06-22 00:52:23,881 autoreload 16056 13564 C:\Users\visha\ITHelpdesk\assets\models.py changed, reloading.
+INFO 2026-06-22 00:52:24,439 autoreload 18920 19268 Watching for file changes with StatReloader
+INFO 2026-06-22 00:52:54,817 autoreload 18920 19268 C:\Users\visha\ITHelpdesk\assets\admin.py changed, reloading.
+INFO 2026-06-22 00:52:55,299 autoreload 19780 19804 Watching for file changes with StatReloader
+INFO 2026-06-22 00:53:09,653 autoreload 19780 19804 C:\Users\visha\ITHelpdesk\assets\urls.py changed, reloading.
+INFO 2026-06-22 00:53:10,116 autoreload 20576 19716 Watching for file changes with StatReloader
+INFO 2026-06-22 00:54:08,922 signals 20704 19908 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:54:08,922 signals 20704 19908 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:54:08,922 signals 20704 19908 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:54:12,495 signals 20704 19908 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:54:16,180 signals 20704 19908 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:54:17,973 signals 20704 19908 No email notification recipients found for Ticket #2 activity.
+INFO 2026-06-22 00:54:26,634 signals 20704 19908 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:54:33,551 signals 20704 19908 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:54:33,552 signals 20704 19908 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 00:55:26,051 log 20576 7532 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 00:55:26,886 log 20576 7532 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 00:55:27,362 log 20576 7532 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 00:55:29,902 log 20576 7532 "GET / HTTP/1.1" 200 48942
+ERROR 2026-06-22 00:55:32,218 log 20576 7532 "GET /assets/ HTTP/1.1" 500 92238
+INFO 2026-06-22 00:55:49,533 autoreload 18568 18848 Watching for file changes with StatReloader
+INFO 2026-06-22 00:55:59,940 autoreload 14108 18196 Watching for file changes with StatReloader
+INFO 2026-06-22 00:56:04,272 log 14108 19472 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 00:56:07,054 log 14108 17876 "GET / HTTP/1.1" 200 48941
+INFO 2026-06-22 00:56:07,307 log 14108 17876 "GET / HTTP/1.1" 200 48941
+INFO 2026-06-22 00:56:10,300 log 14108 17876 "GET /assets/ HTTP/1.1" 200 14505
+INFO 2026-06-22 00:56:13,539 log 14108 19472 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 00:56:26,472 log 14108 17876 "GET /assets/add/ HTTP/1.1" 200 8413
+INFO 2026-06-22 00:57:34,675 log 14108 17876 "POST /assets/add/ HTTP/1.1" 302 0
+INFO 2026-06-22 00:57:34,683 log 14108 17876 "GET /assets/ HTTP/1.1" 200 15650
+INFO 2026-06-22 00:57:56,682 log 14108 17876 "GET / HTTP/1.1" 200 48941
+INFO 2026-06-22 00:58:24,101 log 14108 17876 "GET /assets/ HTTP/1.1" 200 15229
+INFO 2026-06-22 00:59:18,908 log 14108 17876 "GET /assets/add/ HTTP/1.1" 200 8413
+INFO 2026-06-22 01:01:40,463 log 14108 7532 "GET / HTTP/1.1" 200 48943
+INFO 2026-06-22 01:01:42,873 log 14108 17876 "GET /assets/add/ HTTP/1.1" 200 8413
+INFO 2026-06-22 01:01:44,483 log 14108 17876 "GET /assets/ HTTP/1.1" 200 15229
+INFO 2026-06-22 01:01:46,098 log 14108 17876 "GET /assets/ HTTP/1.1" 200 15229
+INFO 2026-06-22 01:01:46,737 log 14108 17876 "GET /assets/ HTTP/1.1" 200 15229
+INFO 2026-06-22 01:01:47,024 log 14108 17876 "GET /assets/ HTTP/1.1" 200 15229
+INFO 2026-06-22 01:01:48,223 log 14108 17876 "GET /assets/ HTTP/1.1" 200 15229
+INFO 2026-06-22 01:01:48,472 log 14108 17876 "GET /assets/ HTTP/1.1" 200 15229
+INFO 2026-06-22 01:01:56,698 log 14108 17876 "GET /assets/add/ HTTP/1.1" 200 8413
+INFO 2026-06-22 01:01:58,627 log 14108 17876 "GET /assets/ HTTP/1.1" 200 15229
+INFO 2026-06-22 01:02:00,037 log 14108 17876 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 01:03:16,135 autoreload 14108 18196 C:\Users\visha\ITHelpdesk\assets\models.py changed, reloading.
+INFO 2026-06-22 01:03:16,695 autoreload 20060 18444 Watching for file changes with StatReloader
+INFO 2026-06-22 01:03:33,066 autoreload 20060 18444 C:\Users\visha\ITHelpdesk\assets\admin.py changed, reloading.
+INFO 2026-06-22 01:03:33,603 autoreload 21192 20032 Watching for file changes with StatReloader
+INFO 2026-06-22 01:06:00,351 signals 19048 19800 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:06:00,352 signals 19048 19800 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:06:00,352 signals 19048 19800 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:06:03,765 signals 19048 19800 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:06:07,264 signals 19048 19800 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:06:09,000 signals 19048 19800 No email notification recipients found for Ticket #2 activity.
+INFO 2026-06-22 01:06:17,683 signals 19048 19800 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:06:24,479 signals 19048 19800 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:06:24,479 signals 19048 19800 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:07:58,186 autoreload 9068 5920 Watching for file changes with StatReloader
+INFO 2026-06-22 01:08:04,492 autoreload 20812 19960 Watching for file changes with StatReloader
+INFO 2026-06-22 01:08:13,192 log 20812 16312 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 01:08:21,731 log 20812 16312 "GET /ticket/12/ HTTP/1.1" 200 20191
+INFO 2026-06-22 01:08:35,491 log 20812 16312 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 01:08:37,907 log 20812 16312 "GET /reports/ HTTP/1.1" 200 11610
+INFO 2026-06-22 01:08:41,716 log 20812 16312 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 01:08:43,034 log 20812 16312 "GET /reports/ HTTP/1.1" 200 11610
+INFO 2026-06-22 01:08:45,373 log 20812 16312 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 01:08:52,874 log 20812 16312 "GET /reports/ HTTP/1.1" 200 11610
+INFO 2026-06-22 01:08:55,319 log 20812 16312 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 01:09:04,666 log 20812 16312 "GET /create/ HTTP/1.1" 200 12137
+INFO 2026-06-22 01:09:09,342 log 20812 16312 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 01:09:16,072 log 20812 16312 "GET /ticket/12/ HTTP/1.1" 200 20191
+INFO 2026-06-22 01:09:19,545 log 20812 16312 "POST /ticket/12/update/ HTTP/1.1" 302 0
+INFO 2026-06-22 01:09:19,560 log 20812 16312 "GET /ticket/12/ HTTP/1.1" 200 20579
+INFO 2026-06-22 01:09:21,718 log 20812 16312 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 01:09:27,657 log 20812 16312 "GET /assets/ HTTP/1.1" 200 21764
+INFO 2026-06-22 01:11:35,890 log 20812 16312 "GET /assets/1/ HTTP/1.1" 200 16368
+INFO 2026-06-22 01:12:19,909 log 20812 16312 "GET /assets/1/assign/ HTTP/1.1" 200 5410
+INFO 2026-06-22 01:12:27,581 log 20812 16312 "GET /assets/1/ HTTP/1.1" 200 16368
+INFO 2026-06-22 01:13:47,891 log 20812 16312 "GET /assets/1/ HTTP/1.1" 200 16368
+INFO 2026-06-22 01:13:50,218 log 20812 16312 "GET /assets/1/ HTTP/1.1" 200 16368
+INFO 2026-06-22 01:13:51,952 log 20812 16312 "GET /assets/ HTTP/1.1" 200 21764
+INFO 2026-06-22 01:13:58,182 log 20812 16312 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 01:13:58,902 log 20812 16312 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 01:13:59,659 log 20812 16312 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 01:13:59,892 log 20812 16312 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 01:14:12,133 log 20812 16312 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 01:14:17,549 log 20812 16312 "POST /accounts/logout/ HTTP/1.1" 302 0
+INFO 2026-06-22 01:14:17,552 log 20812 16312 "GET /accounts/login/ HTTP/1.1" 200 6909
+INFO 2026-06-22 01:14:27,868 log 20812 16312 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-06-22 01:14:27,886 log 20812 16312 "GET / HTTP/1.1" 200 49314
+INFO 2026-06-22 01:14:36,138 log 20812 16312 "GET /create/ HTTP/1.1" 200 12137
+INFO 2026-06-22 01:14:38,060 log 20812 16312 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 01:14:44,081 log 20812 16312 "GET /ticket/12/ HTTP/1.1" 200 20191
+INFO 2026-06-22 01:14:48,705 log 20812 16312 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 01:14:52,211 log 20812 16312 "GET /assets/ HTTP/1.1" 200 21764
+INFO 2026-06-22 01:14:56,539 log 20812 16312 "GET /assets/1/ HTTP/1.1" 200 16368
+INFO 2026-06-22 01:15:01,130 log 20812 16312 "GET /assets/ HTTP/1.1" 200 21764
+INFO 2026-06-22 01:15:23,780 log 20812 16312 "GET /assets/add/ HTTP/1.1" 200 8413
+INFO 2026-06-22 01:15:25,071 log 20812 16312 "GET /assets/ HTTP/1.1" 200 21764
+INFO 2026-06-22 01:15:34,004 log 20812 16312 "GET /assets/1/ HTTP/1.1" 200 16368
+INFO 2026-06-22 01:15:39,450 log 20812 16312 "GET /assets/1/status/Repair/ HTTP/1.1" 200 5138
+INFO 2026-06-22 01:15:48,601 log 20812 16312 "POST /assets/1/status/Repair/ HTTP/1.1" 302 0
+INFO 2026-06-22 01:15:48,608 log 20812 16312 "GET /assets/1/ HTTP/1.1" 200 17448
+INFO 2026-06-22 01:16:03,143 log 20812 16312 "GET /assets/1/status/Repair/ HTTP/1.1" 200 5135
+INFO 2026-06-22 01:16:03,687 log 20812 16312 "GET /assets/1/status/Repair/ HTTP/1.1" 200 5135
+INFO 2026-06-22 01:16:03,918 log 20812 16312 "GET /assets/1/status/Repair/ HTTP/1.1" 200 5135
+INFO 2026-06-22 01:16:04,166 log 20812 16312 "GET /assets/1/status/Repair/ HTTP/1.1" 200 5135
+INFO 2026-06-22 01:16:04,936 log 20812 16312 "GET /assets/1/status/Repair/ HTTP/1.1" 200 5135
+INFO 2026-06-22 01:16:05,288 log 20812 16312 "GET /assets/1/status/Repair/ HTTP/1.1" 200 5135
+INFO 2026-06-22 01:16:05,694 log 20812 16312 "GET /assets/1/status/Repair/ HTTP/1.1" 200 5135
+INFO 2026-06-22 01:16:05,943 log 20812 16312 "GET /assets/1/status/Repair/ HTTP/1.1" 200 5135
+INFO 2026-06-22 01:16:06,142 log 20812 16312 "GET /assets/1/status/Repair/ HTTP/1.1" 200 5135
+INFO 2026-06-22 01:16:06,399 log 20812 16312 "GET /assets/1/status/Repair/ HTTP/1.1" 200 5135
+INFO 2026-06-22 01:16:08,540 log 20812 16312 "GET /assets/1/ HTTP/1.1" 200 17043
+INFO 2026-06-22 01:16:09,687 log 20812 16312 "GET /assets/ HTTP/1.1" 200 21758
+INFO 2026-06-22 01:16:10,549 log 20812 16312 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 01:17:33,372 autoreload 20812 19960 C:\Users\visha\ITHelpdesk\assets\models.py changed, reloading.
+INFO 2026-06-22 01:17:33,909 autoreload 18604 20580 Watching for file changes with StatReloader
+INFO 2026-06-22 01:17:52,246 autoreload 18604 20580 C:\Users\visha\ITHelpdesk\assets\admin.py changed, reloading.
+INFO 2026-06-22 01:17:52,754 autoreload 3792 18296 Watching for file changes with StatReloader
+INFO 2026-06-22 01:18:49,646 autoreload 3792 18296 C:\Users\visha\ITHelpdesk\assets\views.py changed, reloading.
+INFO 2026-06-22 01:18:50,136 autoreload 14288 11860 Watching for file changes with StatReloader
+INFO 2026-06-22 01:18:52,321 autoreload 14288 11860 C:\Users\visha\ITHelpdesk\assets\urls.py changed, reloading.
+INFO 2026-06-22 01:18:52,803 autoreload 11692 20936 Watching for file changes with StatReloader
+INFO 2026-06-22 01:20:07,518 signals 6212 15636 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:20:07,519 signals 6212 15636 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:20:07,519 signals 6212 15636 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:20:10,991 signals 6212 15636 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:20:14,422 signals 6212 15636 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:20:16,183 signals 6212 15636 No email notification recipients found for Ticket #2 activity.
+INFO 2026-06-22 01:20:26,176 signals 6212 15636 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:20:30,510 log 11692 20028 "GET / HTTP/1.1" 200 48943
+WARNING 2026-06-22 01:20:30,629 log 11692 20028 "GET /favicon.ico HTTP/1.1" 404 4699
+INFO 2026-06-22 01:20:32,961 log 11692 20028 "GET / HTTP/1.1" 200 48943
+INFO 2026-06-22 01:20:34,347 log 11692 20028 "POST /accounts/logout/ HTTP/1.1" 302 0
+INFO 2026-06-22 01:20:34,351 log 11692 20028 "GET /accounts/login/ HTTP/1.1" 200 6909
+INFO 2026-06-22 01:20:34,905 signals 6212 15636 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:20:34,906 signals 6212 15636 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:20:46,961 log 11692 20028 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-06-22 01:20:46,976 log 11692 20028 "GET / HTTP/1.1" 200 49314
+INFO 2026-06-22 01:21:16,146 signals 17236 20020 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:21:16,146 signals 17236 20020 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:21:16,147 signals 17236 20020 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:21:19,606 signals 17236 20020 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:21:23,160 signals 17236 20020 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:21:25,049 signals 17236 20020 No email notification recipients found for Ticket #2 activity.
+INFO 2026-06-22 01:21:34,547 signals 17236 20020 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:21:37,452 log 11692 20028 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 01:21:38,651 log 11692 20028 "GET / HTTP/1.1" 200 48942
+INFO 2026-06-22 01:21:39,722 log 11692 20028 "GET /assets/ HTTP/1.1" 200 21758
+INFO 2026-06-22 01:21:42,668 signals 17236 20020 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:21:42,668 signals 17236 20020 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-22 01:21:44,071 log 11692 20028 "GET /assets/export/ HTTP/1.1" 200 187
+INFO 2026-06-22 01:23:00,236 log 11692 20028 "GET /assets/ HTTP/1.1" 200 21758
+INFO 2026-06-22 01:23:05,979 log 11692 20028 "POST /accounts/logout/ HTTP/1.1" 302 0
+INFO 2026-06-22 01:23:05,983 log 11692 20028 "GET /accounts/login/ HTTP/1.1" 200 6909
+INFO 2026-06-22 01:23:29,478 log 11692 20028 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-06-22 01:23:29,492 log 11692 20028 "GET / HTTP/1.1" 200 49313
+INFO 2026-06-22 01:23:31,895 log 11692 20028 "GET /assets/ HTTP/1.1" 200 21758
+INFO 2026-06-22 01:23:35,898 log 11692 20028 "GET /assets/1/ HTTP/1.1" 200 17406
+INFO 2026-06-26 22:41:30,109 autoreload 17636 10120 Watching for file changes with StatReloader
+INFO 2026-06-26 22:41:43,962 log 17636 10812 "GET / HTTP/1.1" 200 48663
+WARNING 2026-06-26 22:41:44,167 log 17636 10812 "GET /favicon.ico HTTP/1.1" 404 4699
+INFO 2026-06-26 22:42:06,842 log 17636 10812 "GET /reports/ HTTP/1.1" 200 11610
+INFO 2026-06-26 22:42:19,562 log 17636 10812 "GET / HTTP/1.1" 200 48663
+INFO 2026-06-26 22:42:23,483 log 17636 10812 "GET /audit-log/ HTTP/1.1" 200 61115
+INFO 2026-06-26 22:42:42,877 log 17636 10812 "GET / HTTP/1.1" 200 48663
+INFO 2026-06-26 22:45:21,964 log 17636 10812 "GET / HTTP/1.1" 200 48663
+INFO 2026-06-26 22:48:44,809 log 17636 10812 "GET / HTTP/1.1" 200 48663
+INFO 2026-06-26 22:48:54,172 log 17636 10812 "GET / HTTP/1.1" 200 48663
+INFO 2026-06-26 22:49:00,864 log 17636 10812 "POST /accounts/logout/ HTTP/1.1" 302 0
+INFO 2026-06-26 22:49:00,892 log 17636 10812 "GET /accounts/login/ HTTP/1.1" 200 6909
+INFO 2026-06-26 22:55:08,121 signals 16348 988 Notification email sent to ['admin@example.com'] for Self Call #1 activity: 'Added rule change notes'.
+INFO 2026-06-26 22:55:41,171 signals 10324 11860 Notification email sent to ['admin@example.com'] for Self Call #1 activity: 'Added rule change notes'.
+INFO 2026-06-26 22:55:50,131 signals 10324 11860 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-26 22:55:50,132 signals 10324 11860 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-26 22:55:50,132 signals 10324 11860 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-26 22:55:53,476 signals 10324 11860 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-26 22:55:56,730 signals 10324 11860 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-26 22:55:58,387 signals 10324 11860 No email notification recipients found for Ticket #2 activity.
+INFO 2026-06-26 22:56:06,670 signals 10324 11860 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-26 22:56:13,240 signals 10324 11860 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-26 22:56:13,241 signals 10324 11860 No email notification recipients found for Ticket #1 activity.
+INFO 2026-06-26 22:56:30,550 autoreload 3540 15576 Watching for file changes with StatReloader
+INFO 2026-06-26 22:57:20,123 log 3540 1732 "GET /self-calls/ HTTP/1.1" 302 0
+INFO 2026-06-26 22:57:20,130 log 3540 1732 "GET /accounts/login/?next=/self-calls/ HTTP/1.1" 200 6909
+INFO 2026-06-26 22:57:28,021 log 3540 1732 "POST /accounts/login/?next=/self-calls/ HTTP/1.1" 302 0
+INFO 2026-06-26 22:57:28,053 log 3540 1732 "GET / HTTP/1.1" 200 49300
+INFO 2026-06-26 22:57:37,078 log 3540 1732 "GET /self-calls/ HTTP/1.1" 200 27153
+INFO 2026-06-26 22:57:59,332 log 3540 1732 "GET /self-calls/?status=all&q=&category=Server&priority=all&department=all&engineer=all&start_date=&end_date= HTTP/1.1" 200 27161
+INFO 2026-06-26 22:58:01,799 log 3540 1732 "GET /self-calls/?status=all&q=&category=Server&priority=High&department=all&engineer=all&start_date=&end_date= HTTP/1.1" 200 27169
+INFO 2026-06-26 22:58:07,730 log 3540 1732 "GET /self-calls/?status=all&q=&category=Server&priority=High&department=Administration&engineer=all&start_date=&end_date= HTTP/1.1" 200 27177
+INFO 2026-06-26 22:58:14,847 log 3540 1732 "GET /self-calls/?status=all&q=&category=Server&priority=High&department=Administration&engineer=1&start_date=&end_date= HTTP/1.1" 200 27185
+INFO 2026-06-26 22:58:17,754 log 3540 1732 "GET /self-calls/?status=all&q=&category=Server&priority=High&department=Administration&engineer=2&start_date=&end_date= HTTP/1.1" 200 27185
+INFO 2026-06-26 22:58:47,526 log 3540 1732 "GET /self-calls/?status=all&q=Warranty+renewal&category=Server&priority=High&department=Administration&engineer=2&start_date=0002-01-10&end_date= HTTP/1.1" 200 27211
+INFO 2026-06-26 22:58:53,832 log 3540 1732 "GET /self-calls/?status=all&q=Warranty+renewal&category=Server&priority=High&department=Administration&engineer=2&start_date=0020-01-10&end_date= HTTP/1.1" 200 27211
+INFO 2026-06-26 22:58:58,210 log 3540 1732 "GET /self-calls/?status=all&q=Warranty+renewal&category=Server&priority=High&department=Administration&engineer=2&start_date=0019-01-10&end_date= HTTP/1.1" 200 27211
+INFO 2026-06-26 22:59:01,163 log 3540 1732 "GET /self-calls/?status=all&q=Warranty+renewal&category=Server&priority=High&department=Administration&engineer=2&start_date=0018-01-10&end_date= HTTP/1.1" 200 27211
+INFO 2026-06-26 22:59:03,568 log 3540 1732 "GET /self-calls/?status=all&q=Warranty+renewal&category=Server&priority=High&department=Administration&engineer=2&start_date=0017-01-10&end_date= HTTP/1.1" 200 27211
+INFO 2026-06-26 22:59:24,524 log 3540 1732 "GET /self-calls/?status=all&q=Warranty+renewal&category=Server&priority=High&department=Administration&engineer=2&start_date=0025-10-10&end_date= HTTP/1.1" 200 27211
+INFO 2026-06-26 22:59:48,856 log 3540 1732 "GET /self-calls/?status=all&q=Warranty+renewal&category=Server&priority=High&department=Administration&engineer=2&start_date=0025-10-10&end_date=2026-10-01 HTTP/1.1" 200 27221
+INFO 2026-06-26 22:59:50,615 log 3540 1732 "GET /self-calls/?status=all&q=Warranty+renewal&category=Server&priority=High&department=Administration&engineer=2&start_date=0025-10-10&end_date=2026-10-01 HTTP/1.1" 200 27221
+INFO 2026-06-26 22:59:55,515 log 3540 1732 "GET /self-calls/?status=all&q=Warranty+renewal&category=Server&priority=High&department=Administration&engineer=2&start_date=0025-10-10&end_date=2026-10-01 HTTP/1.1" 200 27221
+INFO 2026-06-26 23:00:03,039 log 3540 1732 "GET / HTTP/1.1" 200 48928
+INFO 2026-06-26 23:00:30,159 log 3540 1732 "GET / HTTP/1.1" 200 48928
+INFO 2026-06-26 23:00:43,826 log 3540 1732 "GET /assets/ HTTP/1.1" 200 21758
+INFO 2026-06-26 23:00:48,870 log 3540 1732 "GET /assets/1/ HTTP/1.1" 200 17406
+INFO 2026-06-26 23:00:58,121 log 3540 1732 "GET /assets/ HTTP/1.1" 200 21758
+INFO 2026-06-26 23:01:02,244 log 3540 1732 "GET / HTTP/1.1" 200 48928
+INFO 2026-06-26 23:22:44,344 log 3540 14840 "GET / HTTP/1.1" 200 48928
+INFO 2026-06-26 23:23:40,601 log 3540 9420 "GET / HTTP/1.1" 302 0
+INFO 2026-06-26 23:23:40,606 log 3540 9420 "GET /accounts/login/?next=/ HTTP/1.1" 200 6909
+INFO 2026-06-26 23:26:59,350 autoreload 17748 2664 Watching for file changes with StatReloader
+INFO 2026-06-26 23:27:16,004 log 3540 14840 "GET / HTTP/1.1" 200 48928
+INFO 2026-06-26 23:27:16,875 log 3540 14840 "GET / HTTP/1.1" 200 48928
+INFO 2026-06-26 23:27:17,306 log 3540 14840 "GET / HTTP/1.1" 200 48928
+INFO 2026-06-26 23:28:10,794 autoreload 3852 17732 Watching for file changes with StatReloader
+INFO 2026-06-26 23:28:21,799 log 3852 10136 "GET / HTTP/1.1" 200 48928
+WARNING 2026-06-26 23:28:21,898 log 3852 10136 "GET /favicon.ico HTTP/1.1" 404 4853
+INFO 2026-06-26 23:28:24,182 log 3852 10136 "GET / HTTP/1.1" 200 48928
+INFO 2026-06-26 23:31:21,515 autoreload 1036 17704 Watching for file changes with StatReloader
+INFO 2026-06-26 23:31:35,359 log 1036 18304 "GET / HTTP/1.1" 200 48928
+INFO 2026-06-26 23:31:38,009 log 1036 18304 "POST /accounts/logout/ HTTP/1.1" 302 0
+INFO 2026-06-26 23:31:38,013 log 1036 18304 "GET /accounts/login/ HTTP/1.1" 200 6909
+INFO 2026-06-26 23:31:39,778 log 1036 18304 "GET /accounts/login/ HTTP/1.1" 200 6909
+INFO 2026-06-26 23:31:40,362 log 1036 18304 "GET /accounts/login/ HTTP/1.1" 200 6909
+INFO 2026-06-26 23:31:41,219 log 1036 18304 "GET /accounts/login/ HTTP/1.1" 200 6909
+INFO 2026-06-26 23:31:46,846 log 3540 14840 "GET / HTTP/1.1" 302 0
+INFO 2026-06-26 23:31:46,852 log 3540 14840 "GET /accounts/login/?next=/ HTTP/1.1" 200 6909
+INFO 2026-06-26 23:31:50,517 log 3540 14840 "GET / HTTP/1.1" 302 0
+INFO 2026-06-26 23:31:50,521 log 3540 14840 "GET /accounts/login/?next=/ HTTP/1.1" 200 6909
+INFO 2026-06-26 23:31:53,794 log 3540 14840 "GET /accounts/login/?next=/ HTTP/1.1" 200 6909
+INFO 2026-06-26 23:31:54,387 log 3540 14840 "GET /accounts/login/?next=/ HTTP/1.1" 200 6909
+INFO 2026-06-26 23:31:54,619 log 3540 14840 "GET /accounts/login/?next=/ HTTP/1.1" 200 6909
+INFO 2026-06-26 23:31:54,827 log 3540 14840 "GET /accounts/login/?next=/ HTTP/1.1" 200 6909
+INFO 2026-06-26 23:31:55,034 log 3540 14840 "GET /accounts/login/?next=/ HTTP/1.1" 200 6909
+INFO 2026-06-26 23:31:55,251 log 3540 14840 "GET /accounts/login/?next=/ HTTP/1.1" 200 6909
+INFO 2026-06-26 23:31:55,475 log 3540 14840 "GET /accounts/login/?next=/ HTTP/1.1" 200 6909
+INFO 2026-06-26 23:31:55,682 log 3540 14840 "GET /accounts/login/?next=/ HTTP/1.1" 200 6909
+INFO 2026-06-26 23:31:55,901 log 3540 14840 "GET /accounts/login/?next=/ HTTP/1.1" 200 6909
+INFO 2026-06-26 23:31:56,108 log 3540 14840 "GET /accounts/login/?next=/ HTTP/1.1" 200 6909
+INFO 2026-06-26 23:31:56,339 log 3540 14840 "GET /accounts/login/?next=/ HTTP/1.1" 200 6909
+INFO 2026-06-26 23:31:56,554 log 3540 14840 "GET /accounts/login/?next=/ HTTP/1.1" 200 6909
+INFO 2026-06-26 23:32:02,381 basehttp 3540 14840 - Broken pipe from ('127.0.0.1', 56728)
+INFO 2026-06-26 23:32:02,782 log 3540 12992 "POST /accounts/login/?next=/ HTTP/1.1" 302 0
+INFO 2026-06-26 23:32:02,799 log 3540 12992 "GET / HTTP/1.1" 200 49302
+INFO 2026-06-26 23:35:02,558 autoreload 10508 18256 Watching for file changes with StatReloader
+INFO 2026-06-26 23:35:13,807 log 10508 18204 "GET / HTTP/1.1" 200 48929

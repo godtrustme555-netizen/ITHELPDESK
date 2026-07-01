@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Self Call Notification</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #e1e4e8;
+        }
+        .header {
+            background-color: #1e3a8a;
+            color: #ffffff;
+            padding: 24px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .content {
+            padding: 24px;
+        }
+        .greeting {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        .message-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #3b82f6;
+            padding: 16px;
+            border-radius: 4px;
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+        .info-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #64748b;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 6px;
+        }
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+        }
+        .info-table td {
+            padding: 8px 0;
+            font-size: 14px;
+            vertical-align: top;
+        }
+        .info-table .label {
+            font-weight: 600;
+            color: #475569;
+            width: 130px;
+        }
+        .info-table .value {
+            color: #0f172a;
+        }
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .badge-Open { background-color: #dbeafe; color: #1e40af; }
+        .badge-Assigned { background-color: #fae8ff; color: #86198f; }
+        .badge-Progress { background-color: #e0e7ff; color: #3730a3; }
+        .badge-Pending { background-color: #fef3c7; color: #d97706; }
+        .badge-Completed { background-color: #d1fae5; color: #065f46; }
+        .badge-Closed { background-color: #f3f4f6; color: #374151; }
+        .badge-Cancelled { background-color: #fee2e2; color: #991b1b; }
+        
+        .badge-Low { background-color: #f3f4f6; color: #374151; }
+        .badge-Medium { background-color: #e0f2fe; color: #0369a1; }
+        .badge-High { background-color: #ffedd5; color: #c2410c; }
+        .badge-Critical { background-color: #fee2e2; color: #991b1b; }
+        
+        .button-container {
+            text-align: center;
+            margin: 28px 0;
+        }
+        .button {
+            background-color: #2563eb;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 15px;
+            display: inline-block;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+        }
+        .footer {
+            background-color: #f8fafc;
+            padding: 16px;
+            text-align: center;
+            font-size: 12px;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>IT Department - Self Call</h1>
+        </div>
+        <div class="content">
+            <div class="greeting">Hello,</div>
+            <div class="message-box">
+                <strong>{{ email_message }}</strong>
+                {% if actor %}
+                    <br><span style="font-size: 13px; color: #64748b;">Performed by: <strong>{{ actor.username }}</strong></span>
+                {% endif %}
+            </div>
+            
+            <div class="info-title">Self Call Details</div>
+            <table class="info-table">
+                <tr>
+                    <td class="label">Self Call ID:</td>
+                    <td class="value"><strong>{{ self_call.self_call_id }}</strong></td>
+                </tr>
+                <tr>
+                    <td class="label">Title:</td>
+                    <td class="value">{{ self_call.title }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Category:</td>
+                    <td class="value">{{ self_call.category }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Department:</td>
+                    <td class="value">{{ self_call.department }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Priority:</td>
+                    <td class="value">
+                        <span class="badge badge-{{ self_call.priority }}">{{ self_call.priority }}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Status:</td>
+                    <td class="value">
+                        <span class="badge badge-{{ self_call.status|cut:' ' }}">{{ self_call.status }}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Assigned Engineer:</td>
+                    <td class="value">{{ self_call.assigned_engineer.username|default:"Unassigned" }}</td>
+                </tr>
+            </table>
+
+            <div class="button-container">
+                <a href="{{ self_call_url }}" class="button" style="color: #ffffff;">View Self Call Details</a>
+            </div>
+        </div>
+        <div class="footer">
+            This is an automated internal notification from your IT Helpdesk system.<br>
+            Please do not reply directly to this email.
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+Hello,
+
+{{ email_message }}
+{% if actor %}
+Performed by: {{ actor.username }}
+{% endif %}
+
+----------------------------------------
+TICKET DETAILS
+----------------------------------------
+Ticket ID:   {% if ticket.ticket_number %}{{ ticket.ticket_number }}{% else %}#{{ ticket.id }}{% endif %}
+Subject:     {{ ticket.subject }}
+Category:    {{ ticket.category }}
+Priority:    {{ ticket.priority }}
+Status:      {{ ticket.status }}
+Assigned To: {{ ticket.assigned_to.username|default:"Unassigned" }}
+
+View the full ticket details and respond here:
+{{ ticket_url }}
+
+--
+IT Helpdesk System
+(This is an automated notification. Please do not reply directly to this email.)

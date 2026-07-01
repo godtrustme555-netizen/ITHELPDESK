@@ -1,0 +1,16 @@
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/helpdesk
+EnvironmentFile=/var/www/helpdesk/.env
+ExecStart=/var/www/helpdesk/venv/bin/gunicorn \
+          --config /var/www/helpdesk/gunicorn.conf.py \
+          helpdesk.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
